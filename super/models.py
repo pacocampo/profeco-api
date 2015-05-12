@@ -1,5 +1,5 @@
 from django.db import models
-
+from profeco.models import Producto
 
 # Create your models here.
 
@@ -8,20 +8,21 @@ class Super (models.Model):
 
 
 	def __unicode__(self):
-		return self.categoria
+		return self.nombre_super
 
 
 class Local (models.Model):
-	foreign_key_super = models.ForeignKey(Super, verbose_name='foreign_key_id')
-	direccion = models.CharField(max_length=300, verbose_name='Presentacion')
-	categoria = models.ForeignKey('Categorias')
-        latitud = models.DecimalField(max_digits=3, decimal_places= 10)
+	super = models.ForeignKey(Super, verbose_name='super')
+	direccion = models.CharField(max_length=300, verbose_name='direccion')
+	latitud = models.DecimalField(max_digits=3, decimal_places= 10)
 	longitud = models.DecimalField(max_digits=3, decimal_places= 10)
 
 	def __unicode__(self):
-		return self.producto
+		return self.super
+
 
 class Precios (models.Model):
-	foreign_key_local = models.ForeignKey('Local')
+	local = models.ForeignKey('Local')
 	precio = models.DecimalField(max_digits=5, decimal_places= 4)
 	date_added = models.DateField(auto_now=False, auto_now_add=False)
+        product = model.ForeingKey('Producto')
