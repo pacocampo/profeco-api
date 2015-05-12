@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from api import views as api_views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^products/', api_views.ProductoViewList.as_view(), name="producto-list"),
+    url(r'^categories/', api_views.CategoriaViewList.as_view(), name="categoria-list"),
 ]
