@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Categoria (models.Model):
 	categoria = models.CharField(max_length= 100, verbose_name='Categoria')
@@ -11,7 +12,7 @@ class Categoria (models.Model):
 class Producto (models.Model):
 	producto = models.CharField(max_length =  200, verbose_name='Producto')
 	marca = models.CharField(max_length = 100, verbose_name='Marca')
-	descripcion = models.CharField(max_length = 250, verbose_name='Descripcion')
+	descripcion = models.CharField(max_length = 250, verbose_name='Descripcion', defaulf_= 'Marca Libre')
 	presentacion = models.CharField(max_length=300, verbose_name='Presentacion')
 	categoria = models.ForeignKey('Categoria')
 
