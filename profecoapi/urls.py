@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^products/', api_views.ProductoViewList.as_view(), name="producto-list"),
     url(r'^categories/', api_views.CategoriaViewList.as_view(), name="categoria-list"),
+    url(r'^supermercados/', api_views.SupermercadosViewList.as_view(), name="supermercados-list")
 ]
