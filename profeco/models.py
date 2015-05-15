@@ -21,7 +21,7 @@ class Producto (models.Model):
 
 class PrecioProfeco (models.Model):
 	producto = models.ForeignKey('Producto')
-	precio_min = models.DecimalField(max_digits=5, decimal_places= 4)
-	precio_max = models.DecimalField(max_digits=5, decimal_places= 4)
-	precio_prom = models.DecimalField(max_digits=5, decimal_places= 4)
+	precio_min = models.DecimalField(max_digits=9, decimal_places= 4)
+	precio_max = models.DecimalField(max_digits=9, decimal_places= 4)
+	precio_prom = models.DecimalField(max_digits=9, decimal_places= 4)
 	date_added = models.DateField(auto_now=False, auto_now_add=False)
