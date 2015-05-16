@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^categories/$', api_views.CategoriaViewList.as_view(), name="categoria-list"),
     url(r'^categories/(?P<pk>[0-9]+)/$', api_views.CategoriaViewDetail.as_view(), name="categoria-detail"),
     url(r'^supermercados/', api_views.SupermercadosViewList.as_view(), name="supermercados-list"),
-    #url(r'^testing/', api_views.ProductViewList.as_view(), name="test-list"),
+    url(r'^testing/', api_views.PrecioViewList.as_view(), name="test-list"),
 ]

@@ -50,6 +50,6 @@ class SuperViewList(APIView):
 
 class PrecioViewList(APIView):
 	def get(self, request, format=None):
-		precios = Local.objects.all()
-		serializer = LocalsSerializer(precios, many=True)
+		precios = Precio.objects.all()
+		serializer = PrecioSerializer(precios, many=True)
 		return Response(serializer.data)
