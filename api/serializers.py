@@ -17,7 +17,6 @@ class ProductoSerializer(serializers.ModelSerializer):
 		fields = ('id', 'producto','marca', 'descripcion', 'presentacion', 'categoria')
 
 class LocalSerializer(serializers.ModelSerializer):
-	#tienda = serializers.StringRelatedField()
 	class Meta:
 		model = Local
 		fields = ('id','tienda', 'sucursal', 'latitud', 'longitud','tienda')
@@ -25,7 +24,6 @@ class LocalSerializer(serializers.ModelSerializer):
 
 class PrecioSerializer(serializers.ModelSerializer):
 	local= LocalSerializer()
-	#locales = LocalSerializer(read_only=True, many=True)
 	class Meta:
 		model = Precio
 		fields = ('precio', 'local')
