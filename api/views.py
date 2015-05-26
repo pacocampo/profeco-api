@@ -36,6 +36,19 @@ class SupermercadosViewList(APIView):
 		serializer = LocalSerializer(locales, many=True)
 		return Response(serializer.data)
 
+class LocalViewDetail(APIView):
+	def get_object(self, pk):
+		try:
+			return Local.objects.filter(id = pk)
+		except Local.DoesNotExist:
+			return Http404
+
+	def get (self, request, pk, format=None):
+		local = self.get_object(pk)
+		serializer = LocalSerializer(local, many= True)
+		return Response(serializer.data)
+
+
 class ProductoViewList(APIView):
 	def get(self, request, format=None):
 		productos = Producto.objects.all()
@@ -53,3 +66,5 @@ class PrecioViewList(APIView):
 		precios = Precio.objects.all()
 		serializer = PrecioSerializer(precios, many=True)
 		return Response(serializer.data)
+
+

@@ -4,6 +4,9 @@ from rest_framework import serializers
 from rest_framework import generics
 from supermercado.models import Local, Precio, Supermercado
 
+
+
+
 class CategoriaSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Categoria
@@ -19,7 +22,7 @@ class ProductoSerializer(serializers.ModelSerializer):
 class LocalSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Local
-		fields = ('id','tienda', 'sucursal', 'latitud', 'longitud','tienda')
+		fields = ('id','tienda', 'sucursal', 'direccion', 'telefono', 'latitud', 'longitud','tienda')
 
 
 class PrecioSerializer(serializers.ModelSerializer):
@@ -30,6 +33,7 @@ class PrecioSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
 	precios = PrecioSerializer(read_only=True, many=True)
+	#categorias = CategoriaSerializer(read_only=True, many=True)
 	categoria = serializers.StringRelatedField()
 
 	class Meta:

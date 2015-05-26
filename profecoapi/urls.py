@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from api import views as api_views
 from rest_framework.urlpatterns import format_suffix_patterns
+import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -24,5 +25,11 @@ urlpatterns = [
     url(r'^categories/$', api_views.CategoriaViewList.as_view(), name="categoria-list"),
     url(r'^categories/(?P<pk>[0-9]+)/$', api_views.CategoriaViewDetail.as_view(), name="categoria-detail"),
     url(r'^supermercados/', api_views.SupermercadosViewList.as_view(), name="supermercados-list"),
-    url(r'^testing/', api_views.PrecioViewList.as_view(), name="test-list"),
+    url(r'^locales/(?P<pk>[0-9]+)/$', api_views.LocalViewDetail.as_view(), name="locales-detail"),
+
+#url(r'^images/(?P<path>.*)$', 'django.views.static.serve', {
+ #           'document_root': settings.MEDIA_ROOT,
+  #      }),
+    #url(r'^images/icons/), 
+    #url(r'^testing/', api_views.Pruebas.as_view(), name="test-list"),
 ]
