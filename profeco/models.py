@@ -14,14 +14,14 @@ class Producto (models.Model):
 	marca = models.CharField(max_length = 100, verbose_name='Marca', default="Marca Libre")
 	descripcion = models.CharField(max_length = 250, verbose_name='Descripcion', default= 'Marca Libre')
 	presentacion = models.CharField(max_length=300, verbose_name='Presentacion', default='Marca Libre')
-	categoria = models.ForeignKey('Categoria', related_name='categorias')
+	categoria = models.ForeignKey('Categoria', related_name='productos')
 
 	def __unicode__(self):
 		return self.producto
 
 class PrecioProfeco (models.Model):
 	producto = models.ForeignKey('Producto')
-	precio_min = models.DecimalField(max_digits=5, decimal_places= 4)
-	precio_max = models.DecimalField(max_digits=5, decimal_places= 4)
-	precio_prom = models.DecimalField(max_digits=5, decimal_places= 4)
+	precio_min = models.DecimalField(max_digits=9, decimal_places= 4)
+	precio_max = models.DecimalField(max_digits=9, decimal_places= 4)
+	precio_prom = models.DecimalField(max_digits=9, decimal_places= 4)
 	date_added = models.DateField(auto_now=False, auto_now_add=False)
